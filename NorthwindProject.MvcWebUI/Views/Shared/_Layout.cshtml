@@ -32,7 +32,10 @@
     <div class="container body-content">
             <div class="row">
                 <div class="col-md-2">
-                    Categories will be inserted here
+                    @{
+                        Html.RenderAction("List", "Category");
+                    }
+                    ;
                 </div>
                 @RenderBody()
                 <hr />

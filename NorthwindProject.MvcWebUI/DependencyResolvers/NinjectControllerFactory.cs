@@ -21,7 +21,10 @@ namespace NorthwindProject.MvcWebUI.DependencyResolvers
             _kernel = new StandardKernel();
             _kernel.Bind<IProductService>().To<ProductManager>().InSingletonScope();
             _kernel.Bind<IProductDal>().To<EfProductDal>().InSingletonScope();
+            _kernel.Bind<ICategoryService>().To<CategoryManager>().InSingletonScope();
+            _kernel.Bind<ICategoryDal>().To<EfCategoryDal>().InSingletonScope();
         }
+
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
             return controllerType == null? null : (IController) _kernel.Get(controllerType);
